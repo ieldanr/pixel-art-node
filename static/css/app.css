@@ -1,0 +1,17 @@
+.col {
+  border-color:black;
+  border-style:solid;
+  border-width:2px;
+  float: left;
+  box-sizing:border-box;
+  -moz-box-sizing:border-box; /* Firefox */
+}
+
+.board{
+       position: absolute;
+       top: 0px; /* Header Height */
+       bottom: 0px; /* Footer Height */
+       left: 0px;
+       right: 0px;
+       width: 100%;
+    }
