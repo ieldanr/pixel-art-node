@@ -3,7 +3,7 @@ pixel-art-node
 
 Web sockets pixel art: each time somebody makes a click a random color will show in everybody's pixels.
 
-See demo at [http://secret-thicket-2051.herokuapp.com/]()
+See demo at [http://secret-thicket-2051.herokuapp.com/](http://secret-thicket-2051.herokuapp.com/)
 
 ### To get the code
 ````
@@ -18,4 +18,4 @@ Make sure you have node installed and then:
 node server.js
 ````
 
-Go to [http://localhost:8081]()
+Go to [http://localhost:8081](http://localhost:8081)
