@@ -3,6 +3,8 @@
 
 $(document).ready(function() {
 
+  var socket = io.connect();
+
   var board_gui = {
     create: function(x,y){
 
@@ -37,16 +39,20 @@ $(document).ready(function() {
   }
 
   $('.col').bind('click', function(){
-    $(this).css("background-color", getRandomColor());
-  });
-
-  var socket = io.connect();
-
-  $('#sender').bind('click', function() {
-   socket.emit('message', 'Message Sent on ' + new Date());
+    var col = $(this).attr("col");
+    var row = $(this).parent().attr("row");
+    var color = getRandomColor();
+    $(this).css("background-color", color);
+    socket.emit('message', col + ' ' + row + ' ' + color) ;
+    console.log('emits message: ' + col + ' ' + row + ' ' + color);
   });
 
   socket.on('server_message', function(data){
-   $('#receiver').append('<li>' + data + '</li>');
+    var strs = data.split(" ");
+    var col = strs[0];
+    var row = strs[1];
+    var color = strs[2];
+    $("[row=" + row + "] [col=" + col + "]").css("background-color", color);
+    console.log('received message: ' + data);
   });
 });
